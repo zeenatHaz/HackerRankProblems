@@ -1,0 +1,28 @@
+  public int[] getZigzag(int[] arr, int n)
+        {
+            arr = arr.OrderBy(p => p).ToArray();
+
+            int mid = arr[(n) / 2];
+            int last = arr[n - 1];
+            int temp = last;
+            
+            last = mid;
+            mid = temp;
+            arr[n - 1] = last;
+            arr[n / 2] = mid;
+            List<int> first = new List<int>();
+            for(var i = 0; i <= n / 2; i++)
+            {
+                first.Add(arr[i]);
+            }
+            List<int> second = new List<int>();
+          
+            for (var i = (n + 1) / 2; i < n; i++)
+            {
+                second.Add(arr[i]);
+            }
+            second = second.OrderByDescending(i => i).ToList();
+            var newArray = first.Concat(second).ToArray();
+            return newArray;
+
+        }
