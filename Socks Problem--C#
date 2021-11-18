@@ -1,0 +1,32 @@
+//Socks Problem--C#
+
+
+
+        public int socksProblem(int[] arr,int n)
+        {
+            int count = 0;
+            Dictionary<int,int> dict = new Dictionary<int,int>();
+            if (arr.Length > 0)
+            {
+                for(var i = 0; i < arr.Count(); i++)
+                {
+                    if (dict.ContainsKey(arr[i]))
+                    {
+                        var val = dict[arr[i]];
+                        dict.Remove(arr[i]);
+                        dict.Add(arr[i], val + 1);
+                    }
+                    else
+                    {
+                        dict.Add(arr[i], 1);
+                    }
+                }
+                
+                foreach(var entry in dict)
+                {
+                    int freq = entry.Value;
+                    count = count + freq / 2;
+                }
+            }
+            return count;
+        }
