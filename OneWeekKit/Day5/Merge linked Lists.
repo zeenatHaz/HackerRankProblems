@@ -1,0 +1,26 @@
+  static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        List<int> l1=new List<int>();
+        List<int> l2=new List<int>();
+        SinglyLinkedListNode ls=head1;
+        SinglyLinkedListNode head=ls;
+     while(head1!=null){
+         l1.Add(head1.data);
+         head1=head1.next;
+     }
+ while(head2 !=null){
+         l2.Add(head2.data);
+         head2=head2.next;
+     }
+     head1=ls;
+  List<int> l3=l1.Concat(l2).ToList();
+  l3=l3.OrderBy(i=>i).ToList();
+    SinglyLinkedListNode curr=new SinglyLinkedListNode(-34);
+    SinglyLinkedListNode newHead=curr;
+  foreach(var ele in l3){
+      curr.next=new SinglyLinkedListNode(ele);
+      curr=curr.next;
+      Console.Write(ele);
+  }
+  
+  return newHead.next;
+    }
