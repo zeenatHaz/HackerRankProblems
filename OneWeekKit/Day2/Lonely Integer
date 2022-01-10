@@ -1,0 +1,15 @@
+public static int lonelyinteger(List<int> a)
+    {
+      Dictionary<int,int> dt = new Dictionary<int, int>();
+      foreach(var ele in a){
+          if(!dt.ContainsKey(ele)){
+              dt.Add(ele,1);
+          }else{
+              dt[ele]=dt[ele]+1;
+          }
+      }
+      
+      
+       return  (int)dt.FirstOrDefault(x=>x.Value==1).Key;
+     
+    }
